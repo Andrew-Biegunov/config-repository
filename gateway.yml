@@ -1,0 +1,28 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: customerService
+          uri: lb://customer-service
+          predicates:
+            - Path=/api/customers/**
+          filters:
+            - RewritePath=/api(?<segment>/.*), $\{segment}
+        - id: orderService
+          uri: lb://order-service
+          predicates:
+            - Path=/api/orders/**
+          filters:
+            - RewritePath=/api(?<segment>/.*), $\{segment}
+eureka:
+  client:
+    enabled: true
+    register-with-eureka: false
+    fetch-registry: true
+    service-url.default-zone: http://localhost:8761/eureka
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include=health,info,refresh:
