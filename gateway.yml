@@ -9,6 +9,13 @@ spring:
           filters:
             - RewritePath=/api(?<segment>/.*), $\{segment}
           order: 0
+        - id: orderService
+          uri: lb://order-service
+          predicates:
+            - Path=/api/orders/**
+          filters:
+            - RewritePath=/api(?<segment>/.*), $\{segment}
+          order: 5
         - id: orderManagingService
           uri: lb://order-managing-service
           predicates:
@@ -17,13 +24,6 @@ spring:
           filters:
             - RewritePath=/api(?<segment>/.*), $\{segment}
           order: 0
-        - id: orderService
-          uri: lb://order-service
-          predicates:
-            - Path=/api/orders/**
-          filters:
-            - RewritePath=/api(?<segment>/.*), $\{segment}
-          order: 5
 eureka:
   client:
     enabled: true
