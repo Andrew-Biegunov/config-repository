@@ -16,8 +16,6 @@ spring:
       database: order-db
       host: localhost
       port: 27017
-
-spring:
   kafka:
     bootstrap-servers: localhost:9092
     consumer:
@@ -31,4 +29,6 @@ spring:
     max:
       poll:
         interval:
-            ms: 30000
+          ms: 30000
+        
+  
