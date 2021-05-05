@@ -8,6 +8,7 @@ spring:
             - Path=/api/customers/**
           filters:
             - RewritePath=/api(?<segment>/.*), $\{segment}
+          order: 0
         - id: orderManagingService
           uri: lb://order-managing-service
           predicates:
@@ -15,13 +16,14 @@ spring:
             - Method=POST
           filters:
             - RewritePath=/api(?<segment>/.*), $\{segment}
+          order: 0
         - id: orderService
           uri: lb://order-service
           predicates:
             - Path=/api/orders/**
           filters:
             - RewritePath=/api(?<segment>/.*), $\{segment}
-          order: 10
+          order: 5
 eureka:
   client:
     enabled: true
@@ -36,4 +38,4 @@ management:
   endpoints:
     web:
       exposure:
-        include: "health,info,refresh,gateway"
+        include: 'health,info,refresh,gateway'
