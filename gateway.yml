@@ -8,6 +8,13 @@ spring:
             - Path=/api/customers/**
           filters:
             - RewritePath=/api(?<segment>/.*), $\{segment}
+        - id: orderManagingService
+          uri: lb://order-managing-service
+          predicates:
+            - Path=/api/orders
+            - Method=POST
+          filters:
+            - RewritePath=/api(?<segment>/.*), $\{segment}
         - id: orderService
           uri: lb://order-service
           predicates:
@@ -25,4 +32,4 @@ management:
   endpoints:
     web:
       exposure:
-        include=health,info,refresh:
+        include=health,info,refresh,gateway/routes
