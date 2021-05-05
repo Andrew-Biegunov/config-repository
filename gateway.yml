@@ -35,5 +35,4 @@ management:
   endpoints:
     web:
       exposure:
-        include: 
-          - gateway
+        include: "health,info,refresh,gateway"
