@@ -24,6 +24,11 @@ spring:
       group-id: order-service-group
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring:
+          json:
+            type:
+              mapping: orderinfo:com.sampleservices.orderservice.model.OrderInfo
     listener:
       ack-mode: manual
     max:
