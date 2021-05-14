@@ -24,14 +24,6 @@ spring:
           filters:
             - RewritePath=/api(?<segment>/.*), $\{segment}
           order: 0
-eureka:
-  client:
-    enabled: true
-    registerWithEureka: false
-    fetch-registry: true
-    serviceUrl:
-      defaultZone: ${DISCOVERY_SERVER_URL:http://localhost:8761/eureka}
-    
 management:
   endpoint:
     gateway:
