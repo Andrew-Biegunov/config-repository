@@ -1,6 +1,8 @@
 feign:
   circuitbreaker:
     enabled: true
+  hystrix:
+    enabled: true
 management:
   endpoints:
     web:
@@ -14,5 +16,5 @@ spring:
   data:
     mongodb:
       database: customer-db
-      host: ${MONGODB_HOST:localhost}
-      port: ${MONGODB_PORT:27017}
+      host: ${SPRING_DATA_MONGODB_HOST:localhost}
+      port: ${SPRING_DATA_MONGODB_PORT:27017}
