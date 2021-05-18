@@ -16,5 +16,5 @@ spring:
   data:
     mongodb:
       database: customer-db
-      host: ${SPRING_DATA_MONGODB_HOST:localhost}
+      host: ${SPRING_DATA_MONGODB_HOST:mongo-db}
       port: ${SPRING_DATA_MONGODB_PORT:27017}

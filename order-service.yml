@@ -7,8 +7,8 @@ spring:
   data:
     mongodb:
       database: order-db
-      host: localhost
-      port: 27017
+      host: ${SPRING_DATA_MONGODB_HOST:mongo-db}
+      port: ${SPRING_DATA_MONGODB_PORT:27017}
   kafka:
     bootstrap-servers: localhost:9092
     consumer:
