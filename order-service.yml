@@ -10,7 +10,7 @@ spring:
       host: ${SPRING_DATA_MONGODB_HOST:mongo-db}
       port: ${SPRING_DATA_MONGODB_PORT:27017}
   kafka:
-    bootstrap-servers: localhost:9092
+    bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS:kafka-service:9092}
     consumer:
       auto-offset-reset: earliest
       enable-auto-commit: false
